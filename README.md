@@ -12,13 +12,13 @@ MIT
 Installation
 --------------
 ```sh
-gem install rtpl
+gem install rtpl-compass
 ```
 
 Create project
 --------------
 ```sh
-compass create my_project -r rtpl --using rtpl
+compass create my_project -r rtpl-compass --using rtpl-compass
 ```
 
 ####This will create a my_project directory containing the following files:

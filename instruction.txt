@@ -1,14 +1,14 @@
 Создать расширение
-    gem build rtpl.gemspec
+    gem build rtpl-compass.gemspec
 
 Отправить расширение в Ruby gem:
-    gem push rtpl-VERSION.gem
+    gem push rtpl-compass-VERSION.gem
 
 Установить расширение локально:
-    gem install rtpl-VERSION.gem
+    gem install rtpl-compass-VERSION.gem
 
 Установить проект с Ruby gem:
-    gem install rtpl
+    gem install rtpl-compass
 
 Удалить расширение с Ruby gem:
-    gem yank rtpl -v VERSION
+    gem yank rtpl-compass -v VERSION

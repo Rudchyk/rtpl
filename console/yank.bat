@@ -1,2 +1,2 @@
-call gem yank rtpl -v %1
+call gem yank rtpl-compass -v %1
 call cmd

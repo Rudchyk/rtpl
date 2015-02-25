@@ -1,3 +1,3 @@
 cd ..
-call gem install rtpl
+call gem install rtpl-compass
 call cmd

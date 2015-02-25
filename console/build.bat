@@ -1,3 +1,3 @@
 cd ..
-call gem build rtpl.gemspec
+call gem build rtpl-compass.gemspec
 call cmd

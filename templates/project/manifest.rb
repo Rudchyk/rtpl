@@ -4,8 +4,8 @@ description "A compass template (Sass syntax) implementation of Sergii Rudchyk's
 # General File Import
 html 'index.html', :to => "index.html"
 html 'index.php', :to => "index.php"
-image 'files/screenshot.jpg', :to => "../screenshot.jpg"
-image 'files/favicon.png', :to => "favicon.png"
+image 'images/screenshot.jpg', :to => "../screenshot.jpg"
+image 'images/favicon.png', :to => "favicon.png"
 file 'files/readme.txt', :to => "readme.txt"
 file 'files/compass_watch.bat', :to => "compass_watch.bat"
 
@@ -44,7 +44,6 @@ file 'sass/source/_buttons.sass', :to => "sass/source/_buttons.sass"
 file 'sass/index.sass', :to => "sass/index.sass"
 
 # Image Import
-image 'images/favicon.png', :to => "favicon.png"
 image 'images/loading.gif', :to => "required/loading.gif"
 image 'images/noimg.jpg', :to => "required/noimg.jpg"
 image 'images/fancyClose.png', :to => "icons/fancyClose.png"
@@ -87,11 +86,11 @@ directory 'svg', :to => 'images/svg'
 
 # Compass Extension Help
 help %Q{
-  Help for compass-vikingR-template-sass
+  Help for rtpl-compass
 }
 
 # Compass Extension Welcome Message
 #  Users will see this when they create a new project using this template.
 welcome_message %Q{
-  Welcome to compass-vikingR-template-sass!
+  Welcome to rtpl-compass template!
 }

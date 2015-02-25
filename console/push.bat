@@ -1,3 +1,3 @@
 cd ..
-call gem push rtpl-%1.gem
+call gem push rtpl-compass-%1.gem
 call cmd

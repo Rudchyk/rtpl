@@ -13,7 +13,7 @@ Compass.add_project_configuration(File.join(File.dirname(__FILE__), 'config.rb')
 extension_path = File.expand_path(File.join(File.dirname(__FILE__), ".."))
 
 Compass::Frameworks.register(
-    'rtpl',
+    'rtpl-compass',
     :path => extension_path
 )
 
@@ -26,7 +26,7 @@ Compass::Frameworks.register(
 #  Date is in the form of YYYY-MM-DD
 module Extension
   VERSION = "1.0"
-  DATE = "2015-02-24"
+  DATE = "2015-02-25"
 end
 
 module Compass

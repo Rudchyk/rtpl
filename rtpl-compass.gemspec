@@ -1,5 +1,5 @@
 # Replace extension with the name of your extension's .rb file
-require './lib/rtpl'
+require './lib/rtpl-compass'
 
 Gem::Specification.new do |s|
   # Release Specific Information
@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
 
   # Gem Details
   # Replace "extension" with the name of your extension
-  s.name = "rtpl"
-  s.rubyforge_project = "rtpl"
+  s.name = "rtpl-compass"
+  s.rubyforge_project = "rtpl-compass"
   # Description of your extension
   s.description = %q{A compass template (Sass syntax) implementation of Sergii Rudchyk's}
   # A summary of your Compass extension. Should be different than Description
