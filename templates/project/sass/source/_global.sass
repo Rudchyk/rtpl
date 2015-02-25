@@ -1,0 +1,62 @@
+// Load fonts
+
+
+
+// **Sprites
+$spacingDefault: 20px
+
+// PNG sprites with padding
+// $icons: sprite-map("icons/*.png", $spacing: $spacingDefault)
+// %icons
+//   background: $icons no-repeat
+
+// PNG sprites for ratio 2 with padding
+// $icons-2x: sprite-map("icons@2x/*.png", $spacing: $spacingDefault)
+// %icons-2x
+//   background: $icons-2x no-repeat
+
+// SVG folder name
+// $svg-folder: "svg"
+
+// **Brief
+$baseFontFamily: $Arial
+$baseFontSize: $base-font-size
+$baseFontColor: #444
+$baseLinkColor: #287fc3
+
+$size: 960
+$grid: $size
+
+$max: $size
+$standard: $size
+$min: $QVGA
+
+$footerHeight: 50px
+
+html
+  // min-width: $standard
+
+body
+  @extend %relative
+  // overflow-x: hidden
+  min-height: 100%
+  padding-bottom: $footerHeight
+  background-color: #FFF
+  +shFont($baseFontSize, $baseFontFamily, 1, $baseFontColor)
+
+.container
+  +center($standard)
+
+.header
+  @extend %relative
+
+.footer
+  @extend .full-width
+  +pos("a", false, false, 0, 0, 2)
+  height: $footerHeight
+
+// Icons
+// $iconsArr: none
+// @each $icon in $iconsArr
+//   .#{$icon}-icon
+//     +s(#{$icon})

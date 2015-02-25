@@ -1,0 +1,258 @@
+// Global settings
+
+=hasDisabled
+  &.has-disabled
+    @extend %cur-not-allowed, %no-select
+    opacity: .5
+    @content
+
+// Value
+$fieldHasValueBg: #ecf9ff
+$fieldHasValueBorder: #3eb6e9
+$fieldHasValueColor: #000
+
+// Field JS
+$FieldJS: false
+
+// Select JS
+$SelectJS: true
+$SelectJSUserScroll: false
+$slctArrowWidth: 10px
+$slctArrowHeight: 10px
+$slctArrowColor: #bdc3c7
+$slctArrowPosRight: 10px
+$slctArrowContainer: $fieldHelperContainer
+$maxHeightPoint: 3
+$slctdropBg: #FFF
+$slctdropItemColor: #444
+$slctdropItemBgHover: $fieldHasValueBg
+
+// Radio JS
+$RadioJS: true
+$radioIconVal: radio
+$radioDefaultIcon: #{$radioIconVal}_inactive
+$radioActiveIcon: #{$radioIconVal}_active
+$radioPadding: 30px
+$radioMargin: 0 10px
+
+// Checkboxes JS
+$CheckboxesJS: true
+$checkIconVal: check
+$checkDefaultIcon: #{$checkIconVal}_inactive
+$checkActiveIcon: #{$checkIconVal}_active
+$checkPadding: 30px
+
+// Files JS
+$FilesJS: false
+$fileloadFieldWidth: 73%
+$fileloadBtnWidth: 25%
+
+// Textarea JS
+$TextareaJS: false
+$TextareaJSHeigth: 255px
+
+.field-fake
+  @extend %relative, %ellipsis
+  padding-top: 0
+  padding-bottom: 0
+  line-height: $fieldDefaultHeight
+
+.rform-field-box
+  @extend .field-box
+
+// ---------------------------------------------------------------------------------------------------------------------
+// --- Field JS -------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+
+@if $FieldJS
+  .field
+    // Action
+    .has-value &
+      border-color: $fieldHasValueBorder
+      background: $fieldHasValueBg
+      color: $fieldHasValueColor
+
+    .has-active &
+      border-color: $fieldHasActiveBorder
+      background: $fieldHasActiveBg
+      color: $fieldHasActiveColor
+
+// ---------------------------------------------------------------------------------------------------------------------
+// --- Select JS -------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+
+@if $SelectJS
+  .rform-select-box
+    width: $fieldDefaultWidth
+    .field-hidden
+      opacity: 0
+    .rform-field-slct
+      @extend .full-width
+
+  .rform-field-slct
+    @extend %cur-pointer
+    padding-right: $slctArrowContainer
+    color: $fieldDefaultPlaceholderColor
+    +af
+      +arrow("bottom", $slctArrowWidth, $slctArrowHeight, $slctArrowColor, true, false)
+        right: $slctArrowPosRight
+        top: 50%
+        margin-top: -($slctArrowHeight/2)
+
+    // Action
+    .has-value &
+      +af
+        border-top-color: $fieldHasValueBorder
+
+    .has-active &
+      +af
+        +triangle($slctArrowWidth, $slctArrowHeight, $fieldHasActiveBorder, "top")
+
+    .has-disabled &
+      +af
+        border-top-color: $fieldHasDisabledColor
+
+    @if $fieldHasErrorStyle
+      .has-error &
+        +af
+          border-top-color: $fieldHasErrorColor
+
+      .has-error.has-active &
+        +af
+          border-bottom-color: $fieldHasErrorColor
+
+  .rform-slctdrop
+    @extend %none, .full-width
+    +pos("a", 100%, false, false, 0, 500)
+    max-height: $fieldDefaultHeight*$maxHeightPoint
+    background-color: $slctdropBg
+    border: 1px solid #bdc3c7
+    border-radius: 5px
+    +shFont($fieldDefaultFontSize, $fieldDefaultFontFamily, false)
+
+  .rform-slctdrop-item
+    @extend %cur-pointer, %block
+    padding: 0 10px
+    color: $slctdropItemColor
+    line-height: $fieldDefaultHeight
+
+    +h
+      background-color: $slctdropItemBgHover
+
+    +first
+      border-radius: 5px 5px 0 0
+
+    +last
+      border-radius: 0 0 5px 5px
+
+  .rform-select-box-with-icons
+    .rform-slctdrop-item-inner
+      @extend .has-ps-left-icon
+      padding-left: 20px
+
+      &.rform-slctdrop-item-inner-empty
+        padding-left: 0
+
+  @if $SelectJSUserScroll
+    .mCS-rform-slctdrop.mCSB_scrollTools
+      margin: 5px 0
+      .mCSB_draggerRail
+        background: none
+
+      .mCSB_dragger
+        +h
+          .mCSB_dragger_bar
+            +rgbaBg(#0253A5, .7)
+        &.mCSB_dragger_onDrag
+          .mCSB_dragger_bar
+            +rgbaBg(#0253A5, .7)
+        .mCSB_dragger_bar
+          background-color: #0253A5
+
+// ---------------------------------------------------------------------------------------------------------------------
+// --- Radio JS --------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+
+@if $RadioJS
+  .rform-radio-box
+    @extend %no-select
+    line-height: $fieldDefaultHeight
+
+    +hasDisabled
+      .rform-radio
+        @extend %cur-not-allowed
+
+  .rform-radio
+    @extend %cur-pointer
+    padding-left: $radioPadding
+    margin: $radioMargin
+
+    +bf
+      +s($radioDefaultIcon)
+      +centerHeightIcons($radioDefaultIcon)
+
+    &.has-active
+      +bf
+        +sp($radioActiveIcon)
+
+  // .rform-radio-text
+
+// ---------------------------------------------------------------------------------------------------------------------
+// --- Checkboxes JS ---------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+
+@if $CheckboxesJS
+  .rform-check-box
+    @extend %cur-pointer, %no-select, .has-ps-left-icon
+    padding-left: $checkPadding
+    line-height: $fieldDefaultHeight
+    +bf
+      +s($checkDefaultIcon)
+      +centerHeightIcons($checkDefaultIcon)
+
+    &.has-active
+      +bf
+        +sp($checkActiveIcon)
+
+    +hasDisabled
+
+  // .rform-check-text
+
+// ---------------------------------------------------------------------------------------------------------------------
+// --- Files JS --------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+
+@if $FilesJS
+  .rform-file-box
+    @extend %relative, %no-select
+    width: $fieldDefaultWidth
+    &.only-button
+      width: auto
+      .rform-file-btn
+        width: auto
+    &.full
+      @extend .full-width
+
+  .rform-field-file
+    width: $fileloadFieldWidth
+
+  .rform-file-btn
+    width: $fileloadBtnWidth
+
+// ---------------------------------------------------------------------------------------------------------------------
+// --- Textarea JS --------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+
+@if $TextareaJS
+  .rform-area-box
+    @extend %relative, %no-select
+
+  .rform-area
+    height: $TextareaJSHeigth
+    overflow: auto
+
+    +focus
+      outline: none
+
+    &.has-inactive
+      color: $fieldDefaultPlaceholderColor

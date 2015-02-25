@@ -1,0 +1,14 @@
+Создать расширение
+    gem build rtpl.gemspec
+
+Отправить расширение в Ruby gem:
+    gem push rtpl-VERSION.gem
+
+Установить расширение локально:
+    gem install rtpl-VERSION.gem
+
+Установить проект с Ruby gem:
+    gem install rtpl
+
+Удалить расширение с Ruby gem:
+    gem yank rtpl -v VERSION
