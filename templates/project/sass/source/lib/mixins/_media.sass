@@ -164,8 +164,12 @@ $QVGA: 320px
 
 // Library screens
 
-=mqhd
+=mqMinHD
   @media only screen and (min-width: $HD)
+    @content
+
+=mq1366
+  @media only screen and (max-width: $HD)
     @content
 
 // Only desktops & tablets landscape
