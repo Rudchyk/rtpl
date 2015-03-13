@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   # If more than one author, comma separate inside of the brackets
   s.email = ["sergii.rudchyk@gmail.com"]
   # URL of the extension
-  s.homepage = ""
+  s.homepage = 'http://rtpl.viking-r.pp.ua/'
   s.licenses = ['MIT']
 
   # Gem Files
