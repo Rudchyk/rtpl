@@ -57,14 +57,13 @@
     this._init = function(element, options) {
       var defaults = {
         el: $(element),
-        slctDropClass: 'slctdrop',
-        slctDropListClass: 'slctdrop-list',
-        slctDropItemClass: 'slctdrop-item',
-        fieldBoxClass: 'field-box',
+        slctDropClass: 'rform-slctdrop',
+        slctDropListClass: 'rform-slctdrop-list',
+        slctDropItemClass: 'rform-slctdrop-item',
+        fieldBoxClass: 'rform-field-box',
         hideClass: 'hide',
-        fakeFieldClass: 'field-fake',
+        fakeFieldClass: 'rform-field-slct',
         workSelectClass: 'field-hidden',
-        userScrollClass: 'scroll-simple_inner',
         userBrowser: /Android|webOS|iPhone|iPad|iPod|BlackBerry/i,
         userScroll: false,
         spanClass: 'class'
@@ -111,7 +110,18 @@
           .hide()
           .before($slctDrop);
 
-        $list.addClass('default-scroll');
+        if (settings.userScroll) {
+          $list
+            .parent()
+            .mCustomScrollbar({
+              scrollbarPosition: 'outside',
+              theme: 'rform-slctdrop'
+            });
+        } else {
+          $list
+            .parent()
+            .addClass('default-scroll');
+        }
 
         if ($elDisabled) {
           $elSelect
@@ -201,7 +211,7 @@
     return this.each(function() {
       var $this =  $(this),
           $thisDisabled =  $this.hasClass(global.disabledClass),
-          $radioClass = '.radio-js',
+          $radioClass = '.rform-radio',
           $radioActiveClass = $radioClass + '.' + global.activeClass,
           $radio = $this.find($radioClass),
           $radioVal = $radio.data('rval'),
@@ -262,7 +272,7 @@
             $thisActive = $this.hasClass(global.activeClass),
             $inputStr = 'input:checkbox',
             $input = $this.find($inputStr),
-            $thisTextStr = '.check-text-js',
+            $thisTextStr = '.rform-check-text',
             $thisText = $this.find($thisTextStr),
             $thisTextVal = $thisText.text();
 
@@ -299,8 +309,8 @@
       var $this = $(this),
           $thisDisabled = $this.hasClass(global.disabledClass),
           $thisInputStr = 'input:file',
-          $thisBtnStr = '.btn',
-          $thisFieldStr = '.field',
+          $thisBtnStr = '.rform-file-btn',
+          $thisFieldStr = '.rform-field-file',
           $input = $this.children($thisInputStr),
           $btn = $this.children($thisBtnStr),
           $fakeField = $this.children($thisFieldStr);
@@ -345,7 +355,7 @@
     return this.each(function() {
       var $this = $(this),
           $thisDisabled = $this.hasClass(global.disabledClass),
-          $fakeArea = $this.find('.field-fake-area-js'),
+          $fakeArea = $this.find('.rform-area'),
           $fakeAreaText = $fakeArea.text().trim(),
           $defaultText = $fakeArea.data('area-placeholder'),
           $input = $this.find('input');
