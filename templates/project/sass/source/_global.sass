@@ -24,17 +24,12 @@ $baseFontSize: $base-font-size
 $baseFontColor: #444
 $baseLinkColor: #287fc3
 
-$size: 960px
-$grid: $size
-
-$max: $size
-$standard: $size
-$min: $QVGA
-
+$standard: 960px
 $footerHeight: 50px
 
+// non in rwd
 html
-  // min-width: $standard
+  min-width: $standard
 
 body
   @extend %relative
@@ -43,9 +38,13 @@ body
   padding-bottom: $footerHeight
   background-color: #FFF
   +shFont($baseFontSize, $baseFontFamily, 1, $baseFontColor)
+  // +mq320
+  //  padding-bottom: 0
 
 .container
   +center($standard)
+  // +mq320
+  //   padding: 0 1em
 
 .header
   @extend %relative
@@ -54,6 +53,9 @@ body
   @extend .full-width
   +pos("a", false, false, 0, 0, 2)
   height: $footerHeight
+  // +mq320
+  //   position: relative
+  //   height: auto
 
 // Icons
 // $iconsArr: none

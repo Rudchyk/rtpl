@@ -73,7 +73,6 @@
 
 %has-ps-icon
   @extend %relative
-
   +bf
     @extend %absolute, %default-zi
     content: ''
@@ -98,6 +97,12 @@
 
 .right
   float: right
+
+.clear
+  clear: both
+
+.clearfix
+  +pie-clearfix
 
 // Width
 .full-width
@@ -137,6 +142,18 @@
   text-align: right
 
 // Alignment Blocks In Width
+// ---
+// <div class="jbox">
+//   <div class="box"></div>
+//   <div class="box"></div>
+//   <div class="box"></div>
+// </div>
+// or
+// <ul class="jbox">
+//   <li class="box"></li>
+//   <li class="box"></li>
+//   <li class="box"></li>
+// </ul>
 .jbox
   line-height: 0
   text-align: justify
@@ -144,18 +161,24 @@
   .box
     line-height: normal
 
-// Other
-.clear
-  clear: both
-
-.clearfix
-  +pie-clearfix
+// Alignment Block In Height
+// ---
+// <div class="va_outer">
+//   <div class="va_inner"></div>
+// </div>
+.va_outer
+  @extend .tac
+  +bf
+    @extend %dib, %vam, .tac, .full-height
+    content: ''
+  .va_inner
+    @extend %dib, %vam
 
 // --Images--
 .loading
   background: #fff url(../images/required/loading.gif) no-repeat center
 
-.img-rwd
+.img_rwd
   @extend %block
   max-width: 100%
   height: auto

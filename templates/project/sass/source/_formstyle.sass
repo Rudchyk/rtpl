@@ -49,7 +49,7 @@ $fieldHasErrorColor: #e74c3c
   background: $fieldDefaultBg
   +shFont($fieldDefaultFontSize, $fieldDefaultFontFamily, false, $fieldDefaultColor)
 
-  +focus
+  +f
     border-color: $fieldHasActiveBorder
     background: $fieldHasActiveBg
     color: $fieldHasActiveColor
@@ -74,7 +74,7 @@ $fieldHasErrorColor: #e74c3c
   +placeholder($fieldDefaultPlaceholderColor)
   
   +ie8
-    +mlh($fieldDefaultHeight, $fieldDefaultFontSize)
+    +mlh($fieldDefaultFontSize, $fieldDefaultHeight)
 
   &.field-full
     @extend %block, .full-width

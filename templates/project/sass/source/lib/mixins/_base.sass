@@ -102,7 +102,7 @@
 =gpu
   +transform(translate3d(0, 0, 0))
 
-// CSS Selectors
+// Structural pseudo-classes
 =first
   &:first-child
     @content
@@ -124,24 +124,28 @@
   &:nth-child(#{$child}n-#{$number})
     @content
 
-=firstlet
-  &:first-letter
-    @content
 
+// The dynamic pseudo-classes
 =h
   &:hover
     @content
 
-=focus
+=f
   &:focus
     @content
 
-=act
+=a
   &:active
     @content
 
-=target
+=t
   &:target
+    @content
+
+// The :before and :after pseudo-elements
+=ps
+  &:before,
+  &:after
     @content
 
 =bf
@@ -152,7 +156,7 @@
   &:after
     @content
 
-=psBoth
-  &:before,
-  &:after
+// The :first-letter pseudo-element
+=firstlet
+  &:first-letter
     @content
